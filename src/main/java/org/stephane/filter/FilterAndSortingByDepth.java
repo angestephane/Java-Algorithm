@@ -21,10 +21,7 @@ public class FilterAndSortingByDepth implements FilterAndSorting {
 
     @Override
     public boolean satisfie(Seisme se){
-        if(this.maxDepth >= se.getDepth() &&  se.getDepth() >= this.minDepth){
-            return true;
-        }
-        return false;
+        return this.maxDepth >= se.getDepth() && se.getDepth() >= this.minDepth;
     }
 
     @Override
