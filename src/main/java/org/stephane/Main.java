@@ -3,8 +3,7 @@ package org.stephane;
 import org.stephane.entity.Seisme;
 import org.stephane.utility.ConvertData;
 
-import java.io.File;
-import java.net.URL;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
