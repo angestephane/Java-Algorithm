@@ -15,7 +15,7 @@ public class Main {
 
     public static ArrayList<Seisme> filter(ArrayList<Seisme> data, FilterAndSorting filter){
 
-        ArrayList<Seisme> result = new ArrayList<Seisme>();
+        ArrayList<Seisme> result = new ArrayList<>();
         for(Seisme se : data){
             if(filter.satisfie(se)) result.add(se);
         }
