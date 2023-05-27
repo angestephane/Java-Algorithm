@@ -32,20 +32,29 @@ public class Filter {
     public String getPath () {
         Path resourceDirectory = Paths.get("src", "main", "resources", "data");
         String absolutePath = resourceDirectory.toFile().getAbsolutePath();
-        return  absolutePath + getFile();
+        return  absolutePath + '/' + getFile();
     }
 
     public ArrayList<Seisme> getData() {
         ConvertData parser = new ConvertData();
-        return parser.read(this.getPath());
-
+        return parser.read(getPath());
     }
 
-    public ArrayList<Seisme> FilterByDepth(double minDepth, double maxDepth) {
+    //################## Filter by depth ############################/
+    public ArrayList<Seisme> filterByDepth(double minDepth, double maxDepth) {
         FilterAndSorting filterByDepth = new FilterAndSortingByDepth(minDepth, maxDepth, "filtre par profondeur");
         ArrayList<Seisme> resultOfFilter = filter(getData(), filterByDepth);
         FilterAndSortingByDepth sortingByDepth = new FilterAndSortingByDepth("Sorting by depth");
         return sortingByDepth.sortingBy(resultOfFilter);
+    }
+
+    public void readData(ArrayList<Seisme> seismes){
+        System.out.println("############ Données filtrées par profondeur ###########");
+        System.out.println(seismes.size() + " Données trouvées");
+        for(Seisme se : seismes){
+            System.out.println("\n" + se);
+        }
+
     }
 
 
